@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Goofy Girl</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-color: #000;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--dark-color);
+            overflow: hidden;
+            perspective: 1000px;
+            font-family: Arial, sans-serif;
+        }
+
+        .night {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            filter: blur(0.1vmin);
+            background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), 
+                            radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), 
+                            linear-gradient(90deg, #00fffa, #f0f0f0);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #6bf0ff;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px #6bf0ff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            background: transparent;
+            border: 2px solid #6bf0ff;
+            color: #6bf0ff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            background: #6bf0ff;
+            color: #000;
+            box-shadow: 0 0 30px #6bf0ff;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #6bf0ff; }
+            to { text-shadow: 0 0 20px #6bf0ff; }
+        }
+    </style>
+</head>
+<body class="not-loaded">
+    <div class="night"></div>
+    <div class="content">
+        <h1>Happy Birthday<br>Goofy Girl !</h1>
+        <button class="btn" onclick="window.location.href='page2.html'">
+            Open Box 
+        </button>
+    </div>
+
+    <script>
+        onload = () => {
+            const c = setTimeout(() => {
+                document.body.classList.remove("not-loaded");
+                clearTimeout(c);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
